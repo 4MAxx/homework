@@ -35,7 +35,44 @@ class Robot:
         elif 0.5 < self.__condition <= 1: return 'Кажется все в порядке!'
         else: return 'Супер!'
 
-robot1 = Robot('Marvin', 1979, 0.2, 0.4)
-robot2 = Robot('Caliban', 1993, -0.4, 0.3)
-print(robot1.get_condition())
-print(robot2.get_condition())
+# robot1 = Robot('Marvin', 1979, 0.2, 0.4)
+# robot2 = Robot('Caliban', 1993, -0.4, 0.3)
+# print(robot1.get_condition())
+# print(robot2.get_condition())
+
+class Money:
+    def __init__(self, dol, cnt):
+        self.dollars = dol
+        self.cents = cnt
+        self.total_cents = dol * 100 + cnt
+
+    def get_dollars(self):
+        return self.dollars
+
+    def set_dollars(self, s):
+        if type(s) is int and s >= 0:
+            self.total_cents = s * 100 + self.cents
+        else: print('Error dollars')
+
+    def get_cents(self):
+        return self.cents
+
+    def set_cents(self, c):
+        if type(c) is int and 100 > c >= 0:
+            self.total_cents = self.dollars * 100 + c
+            self.cents = c
+        else: print('Error cents')
+
+    def __str__(self):
+        return f'Ваше состояние составляет {self.get_dollars()} долларов {self.get_cents()} центов'
+
+cash = Money(34, 77)
+print(cash.get_dollars())
+cash.set_dollars('hello')
+cash.set_dollars(-45)
+cash.set_dollars(78.8)
+print(cash.get_cents())
+cash.set_cents('hello')
+cash.set_cents(455)
+cash.set_cents(9)
+print(cash)
