@@ -23,9 +23,38 @@ class Square(Rectangle):
     def __init__(self, length=3):
         super().__init__(length, length)
 
-s1 = Square()
-s1.draw()
-print(s1.calculate_area())
-s2 = Square(6)
-s2.draw()
-print(s2.calculate_area())
+# s1 = Square()
+# s1.draw()
+# print(s1.calculate_area())
+# s2 = Square(6)
+# s2.draw()
+# print(s2.calculate_area())
+
+class Elevator:
+    def __init__(self, kol=5, flor=3):
+        self.kol = kol
+        self.flor = flor
+
+    def up(self):
+        if self.flor < self.kol:
+            self.flor += 1
+            print(f'Лифт поднимается на {self.flor} этаж')
+        elif self.flor == self.kol:
+            print('Лифт не может подняться выше')
+
+    def down(self):
+        if self.flor > 1:
+            self.flor -= 1
+            print(f'Лифт опускается на {self.flor} этаж')
+        elif self.flor == 1:
+            print('Лифт не может опуститься ниже')
+
+elevator1 = Elevator(7, 5)
+elevator2 = Elevator()
+elevator1.up()
+elevator1.up()
+elevator1.up()
+elevator2.down()
+elevator2.down()
+elevator2.down()
+elevator2.down()
