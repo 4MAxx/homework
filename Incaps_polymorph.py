@@ -66,13 +66,44 @@ class Money:
     def __str__(self):
         return f'Ваше состояние составляет {self.get_dollars()} долларов {self.get_cents()} центов'
 
-cash = Money(34, 77)
-print(cash.get_dollars())
-cash.set_dollars('hello')
-cash.set_dollars(-45)
-cash.set_dollars(78.8)
-print(cash.get_cents())
-cash.set_cents('hello')
-cash.set_cents(455)
-cash.set_cents(9)
-print(cash)
+# cash = Money(34, 77)
+# print(cash.get_dollars())
+# cash.set_dollars('hello')
+# cash.set_dollars(-45)
+# cash.set_dollars(78.8)
+# print(cash.get_cents())
+# cash.set_cents('hello')
+# cash.set_cents(455)
+# cash.set_cents(9)
+# print(cash)
+
+class Player:
+    def __init__(self, nik):
+        self.nik = nik
+        self.role = 0
+        self.color = ''
+
+    def set_color(self):
+        print('Выберите цвет: ', end='')
+        if len(colors) != 0:
+            for i in colors:
+                print(i, end=' ')
+            print()
+            import random
+            self.color = colors.pop(random.randint(0, len(colors)-1))
+            print(f'Введите цвет: {self.color}')
+            return f'Выбран цвет {self.color}\n'
+        else: return 'Цвет не может быть назначен! Очередь уже заполнена :('
+
+
+colors = ['red', 'green', 'blue']
+
+player1 = Player('Alice558')
+player2 = Player('Mike557')
+player3 = Player('LonelyMan556')
+player4 = Player('LonelyMan557')
+
+print(player1.set_color())
+print(player2.set_color())
+print(player3.set_color())
+print(player4.set_color())
