@@ -49,12 +49,28 @@ class Elevator:
         elif self.flor == 1:
             print('Лифт не может опуститься ниже')
 
-elevator1 = Elevator(7, 5)
-elevator2 = Elevator()
-elevator1.up()
-elevator1.up()
-elevator1.up()
-elevator2.down()
-elevator2.down()
-elevator2.down()
-elevator2.down()
+# elevator1 = Elevator(7, 5)
+# elevator2 = Elevator()
+# elevator1.up()
+# elevator1.up()
+# elevator1.up()
+# elevator2.down()
+# elevator2.down()
+# elevator2.down()
+# elevator2.down()
+
+class NewElevator(Elevator):
+    def __init__(self, kol, flor):
+        super().__init__(kol, flor)
+
+    def move(self, stage):
+        if 1 <= stage <= self.kol:
+            print(f'Лифт отправляется с {self.flor} на {stage} этаж')
+            self.flor = stage
+        else: print('Неправильный номер этажа')
+
+elevator = NewElevator(10, 1)
+elevator.move(10)
+elevator.down()
+elevator.up()
+elevator.move(2)
