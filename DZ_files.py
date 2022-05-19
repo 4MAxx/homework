@@ -37,22 +37,29 @@ def otchet():
     z = Zad_1()
     z.out()
 
-def vivod():
+def vivod_o():
     print("\n" * 100)
     with open(Zad_1.name2, 'r', encoding='utf-8') as f_read:
         for i in f_read:
             print(i, end='')
     input('Нажмите любую клавишу для продолжения...')
 
+def vivod_d():
+    print("\n" * 100)
+    with open(Zad_1.name1, 'r', encoding='utf-8') as f_read:
+        for i in f_read:
+            print(i, end='')
+    input('Нажмите любую клавишу для продолжения...')
+
 n = 1
-menu = ['', 'Заполнить данные', 'Создать отчет', 'Печать отчета на экран', 'Выход']
-menu_func = {1:zapolnenie, 2:otchet, 3:vivod}
-while n != 4:
+menu = ['', 'Заполнить данные', 'Создать отчет', 'Печать отчета на экран', 'Вывод данных на экран', 'Выход']
+menu_func = {1:zapolnenie, 2:otchet, 3:vivod_o, 4:vivod_d}
+while n != 5:
     print("\n" * 100)
     for i in range(1,len(menu)):
         print(f'{i} - {menu[i]}')
     n = int(input('Введите вариант:'))
-    if n == 4: break
-    elif n < 1 or n > 4: continue
+    if n == 5: break
+    elif n < 1 or n > 5: continue
     print("\n" * 100)
     menu_func.get(n)()
