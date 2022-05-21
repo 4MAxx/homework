@@ -42,14 +42,14 @@ def vivod_o():
     with open(Zad_1.name2, 'r', encoding='utf-8') as f_read:
         for i in f_read:
             print(i, end='')
-    input('Нажмите любую клавишу для продолжения...')
+    input('Нажмите клавишу Enter для продолжения...')
 
 def vivod_d():
     print("\n" * 100)
     with open(Zad_1.name1, 'r', encoding='utf-8') as f_read:
         for i in f_read:
             print(i, end='')
-    input('Нажмите любую клавишу для продолжения...')
+    input('Нажмите клавишу Enter для продолжения...')
 
 n = 1
 menu_func = {1:[zapolnenie, 'Заполнить данные'], 2:[otchet, 'Создать отчет'],
