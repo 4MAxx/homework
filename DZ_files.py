@@ -14,7 +14,7 @@ class Zad_1:
         groups = ['', '1-12', '13-18', '19-25', '26-40', '40+']
         data = [0, 0, 0, 0, 0, 0]
         with open(Zad_1.name1, 'r') as f_read:
-            fr = csv.reader(f_read, delimiter = ",")
+            fr = csv.reader(f_read, delimiter=",")
             for row in fr:
                 if 1 <= int(row[2]) <= 12: data[1] += 1
                 elif 13 <= int(row[2]) <= 18: data[2] += 1
@@ -52,14 +52,15 @@ def vivod_d():
     input('Нажмите любую клавишу для продолжения...')
 
 n = 1
-menu = ['', 'Заполнить данные', 'Создать отчет', 'Печать отчета на экран', 'Вывод данных на экран', 'Выход']
-menu_func = {1:zapolnenie, 2:otchet, 3:vivod_o, 4:vivod_d}
+menu_func = {1:[zapolnenie, 'Заполнить данные'], 2:[otchet, 'Создать отчет'],
+             3:[vivod_o, 'Печать отчета на экран'], 4:[vivod_d, 'Вывод данных на экран'],
+             5:[0, 'Выход']}
 while n != 5:
     print("\n" * 100)
-    for i in range(1,len(menu)):
-        print(f'{i} - {menu[i]}')
+    for i in range(1, len(menu_func)+1):
+        print(f'{i} - {menu_func[i][1]}')
     n = int(input('Введите вариант:'))
     if n == 5: break
     elif n < 1 or n > 5: continue
     print("\n" * 100)
-    menu_func.get(n)()
+    menu_func.get(n)[0]()
